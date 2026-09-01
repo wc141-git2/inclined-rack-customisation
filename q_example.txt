@@ -1,0 +1,23 @@
+Hello Rytros Lab Solutions,
+
+I would like to request a quote for a custom rack.
+
+DESIGN SUMMARY
+• Rack inner width: 120.0 mm
+• Rack depth: 255.0 mm
+• Rack height: 369.9 mm
+• Shelf slope: 25.0 mm
+• Shelf levels: 4
+• Flexible shelf levels: 1
+• Alternate shelf position height: 20.0 mm
+• Fixed-shelf height: 95.0 mm
+• Top clearance: 10.0 mm
+• Material: Acrylic (PMMA)
+• Side panel thickness: 6.0 mm
+• Back panel thickness: 6.0 mm
+• Shelf thickness: 5.0 mm
+• Advanced: Side margin: 8.0 mm
+
+Please confirm the design, lead time and price.
+
+Kind regards

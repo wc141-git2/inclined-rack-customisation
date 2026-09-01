@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="Design a custom multi-tier serological pipette rack. Adjust width, depth, and shelf spacing, preview your layout, and request a quote from Rytros.">
+    <title>Design your own rack | Rytros</title>
+    <!-- Site styles: edit colours, spacing, and responsive layout here. -->
+    <style>
+        :root {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            color: #16332e;
+            background: #f5f8f5;
+            --teal: #08766c;
+            --mint: #e3f1ed;
+            --line: #d7e2dd;
+            --muted: #60716b
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            .cta-glow {
+                animation: none !important
+            }
+        }
+
+        body {
+            margin: 0;
+            line-height: 1.5
+        }
+
+        .skip {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden
+        }
+
+        .skip:focus {
+            position: fixed;
+            left: 16px;
+            top: 16px;
+            z-index: 100;
+            width: auto;
+            height: auto;
+            padding: 10px 14px;
+            background: #fff;
+            border: 2px solid var(--teal);
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--teal)
+        }
+
+        .wrap {
+            max-width: 1140px;
+            margin: auto;
+            padding: 0 22px
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+            font-weight: 750
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: invert(1)
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: .9rem
+        }
+
+        nav a:hover,
+        footer a:hover {
+            color: var(--teal)
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        .field input:focus-visible,
+        .field select:focus-visible,
+        .field textarea:focus-visible,
+        .quote textarea:focus-visible {
+            outline: 2px solid var(--teal);
+            outline-offset: 2px
+        }
+
+        .btn:hover {
+            filter: brightness(.96)
+        }
+
+        .primary:hover {
+            background: #066058
+        }
+
+        .secondary:hover {
+            background: #d4e8e2
+        }
+
+        .hero {
+            padding: 70px 0;
+            background: linear-gradient(120deg, #fff, #e7f3ee)
+        }
+
+        .hero-grid,
+        .design-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 42px;
+            align-items: center
+        }
+
+        .eyebrow {
+            color: var(--teal);
+            font-size: .75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .16em
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.05;
+            letter-spacing: -.04em
+        }
+
+        h1 {
+            font-size: clamp(2.25rem, 4.5vw, 3.8rem);
+            margin: 14px 0 22px
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 12px 0 14px
+        }
+
+        p {
+            color: var(--muted)
+        }
+
+        .btn {
+            display: inline-block;
+            border: 0;
+            border-radius: 999px;
+            padding: 12px 19px;
+            font: inherit;
+            font-weight: 750;
+            text-decoration: none;
+            cursor: pointer
+        }
+
+        .primary {
+            background: var(--teal);
+            color: #fff
+        }
+
+        .secondary {
+            background: var(--mint);
+            color: #075b53
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 24px
+        }
+
+        .hero-img,
+        .gallery img {
+            background: #fff;
+            border-radius: 18px;
+            object-fit: contain;
+            width: 100%
+        }
+
+        .hero-img {
+            height: 420px;
+            padding: 20px
+        }
+
+        .hero-card,
+        .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px
+        }
+
+        .hero-grid {
+            display: block
+        }
+
+        section {
+            padding: 76px 0
+        }
+
+        .intro {
+            max-width: 850px;
+            margin-bottom: 30px
+        }
+
+        .features,
+        .gallery,
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .feature p {
+            font-size: .9rem
+        }
+
+        .gallery {
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 20px
+        }
+
+        .gallery .card {
+            background: #fff
+        }
+
+        .gallery img {
+            height: 340px
+        }
+
+        .gallery figcaption {
+            padding: 12px;
+            font-weight: 700;
+            text-align: center
+        }
+
+        .hero-gallery {
+            margin-top: 28px;
+            align-items: stretch
+        }
+
+        .hero-gallery .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin: 0
+        }
+
+        .hero-gallery figure.card img {
+            flex-shrink: 0
+        }
+
+        .hero-gallery figure.card figcaption {
+            margin-top: auto;
+            flex-shrink: 0
+        }
+
+        .hero-specs {
+            font-size: .88rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1
+        }
+
+        .hero-specs h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--teal)
+        }
+
+        .hero-specs ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        .hero-specs li {
+            margin-bottom: 8px
+        }
+
+        .hero-specs li:last-child {
+            margin-bottom: 0
+        }
+
+        .hero-specs ul ul {
+            margin-top: 4px;
+            padding-left: 16px
+        }
+
+        .hero-cta {
+            margin-top: 24px;
+            align-items: center
+        }
+
+        @keyframes cta-glow-pulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 0 0 rgba(8, 118, 108, .3),
+                    0 0 10px 2px rgba(8, 118, 108, .2)
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 3px rgba(8, 118, 108, .12),
+                    0 0 16px 5px rgba(8, 118, 108, .35)
+            }
+        }
+
+        .hero-cta .cta-glow {
+            animation: cta-glow-pulse 2.8s ease-in-out infinite
+        }
+
+        .hero-cta .cta-glow:hover {
+            animation-play-state: paused;
+            background: #066058
+        }
+
+        .video {
+            height: 280px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #123d37, #08766c);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            position: relative;
+            text-decoration: none;
+            transition: filter .2s ease
+        }
+
+        .video:hover {
+            filter: brightness(1.05)
+        }
+
+        .play {
+            background: #fff;
+            color: var(--teal);
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem
+        }
+
+        .video small {
+            position: absolute;
+            bottom: 22px;
+            left: 25px;
+            color: #cfeae3
+        }
+
+        #workflow .wrap {
+            display: flex;
+            flex-direction: column
+        }
+
+        #workflow .steps {
+            order: 2
+        }
+
+        #workflow .video {
+            order: 3
+        }
+
+        .builder {
+            background: #eaf3ef;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .design-grid {
+            align-items: start
+        }
+
+        .controls {
+            position: sticky;
+            top: 16px
+        }
+
+        .group {
+            border-top: 1px solid var(--line);
+            padding: 17px 0
+        }
+
+        .group:first-child {
+            border-top: 0;
+            padding-top: 0
+        }
+
+        .field {
+            margin: 12px 0
+        }
+
+        .field label {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            font-weight: 700;
+            font-size: .9rem
+        }
+
+        .field small {
+            display: block;
+            color: var(--muted);
+            font-size: .76rem;
+            margin-top: 3px
+        }
+
+        .field input {
+            width: 105px;
+            border: 1px solid #bfd1ca;
+            border-radius: 8px;
+            padding: 8px;
+            background: #fff;
+            font: inherit
+        }
+
+        .field textarea {
+            width: 100%;
+            margin-top: 6px;
+            min-height: 72px;
+            border: 1px solid #bfd1ca;
+            border-radius: 8px;
+            padding: 8px;
+            background: #fff;
+            font: inherit;
+            resize: vertical
+        }
+
+        .field-textarea label {
+            display: block
+        }
+
+        .field select {
+            width: 100%;
+            margin-top: 6px;
+            border: 1px solid #bfd1ca;
+            border-radius: 8px;
+            padding: 8px;
+            background: #fff;
+            font: inherit
+        }
+
+        .field-select label {
+            display: block
+        }
+
+        .calculated-field output {
+            display: inline-block;
+            width: 105px;
+            border: 1px solid #a8d2c7;
+            border-radius: 8px;
+            padding: 8px;
+            background: #eaf5f1;
+            color: var(--teal);
+            font-weight: 750;
+            text-align: right
+        }
+
+        .calculated-field small {
+            color: var(--teal)
+        }
+
+        .advanced summary {
+            cursor: pointer;
+            font-weight: 800;
+            font-size: .95rem;
+            letter-spacing: -.02em;
+            color: var(--teal);
+            user-select: none;
+            list-style: none
+        }
+
+        .advanced summary::-webkit-details-marker {
+            display: none
+        }
+
+        .advanced summary::before {
+            content: "▸ "
+        }
+
+        .advanced[open] summary::before {
+            content: "▾ "
+        }
+
+        .field-radio>label:first-child {
+            display: block
+        }
+
+        .radio-row {
+            display: flex;
+            gap: 18px;
+            margin-top: 8px
+        }
+
+        .radio-row label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: .9rem;
+            color: #16332e
+        }
+
+        .radio-row input {
+            width: auto;
+            margin: 0
+        }
+
+        .summary {
+            background: #16332e;
+            color: #fff;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-top: 0
+        }
+
+        .summary small {
+            color: #a8d9ce;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2rem
+        }
+
+        .summary div {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: #d1e1dc;
+            font-size: .9rem;
+            padding-top: 6px
+        }
+
+        .summary strong {
+            color: #fff;
+            text-align: right
+        }
+
+        .summary .warning {
+            color: #ffd4c8;
+            font-size: .82rem;
+            padding-top: 10px;
+            line-height: 1.4
+        }
+
+        .preview {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 14px 16px
+        }
+
+        .preview h3 {
+            margin: 0 0 2px;
+            font-size: 1.15rem
+        }
+
+        .preview p {
+            font-size: .84rem;
+            margin: 0 0 10px
+        }
+
+        .preview-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .preview-visual svg {
+            width: 100%;
+            height: 500px;
+            background: transparent;
+            border-radius: 12px;
+            display: block;
+            margin: 0
+        }
+
+        .preview-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: .76rem;
+            color: var(--muted)
+        }
+
+        .preview-legend li {
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .preview-legend .swatch {
+            width: 18px;
+            height: 10px;
+            border-radius: 2px;
+            border: 1.5px solid transparent
+        }
+
+        .preview-legend .swatch.fixed {
+            background: #fef3dc;
+            border-color: #f39c12
+        }
+
+        .preview-legend .swatch.flex {
+            background: #ede7f6;
+            border-color: #8e44ad
+        }
+
+        .preview-legend .swatch.alt {
+            background: #ede7f6;
+            border-color: #8e44ad;
+            border-style: dashed
+        }
+
+        .side {
+            fill: #edc0b7;
+            stroke: #df745d;
+            stroke-width: 2
+        }
+
+        .back {
+            fill: #dbeae5;
+            stroke: #9cbdb4;
+            stroke-width: 2
+        }
+
+        .shelf {
+            stroke: #d99a32;
+            stroke-width: 6;
+            stroke-linecap: round
+        }
+
+        .fixed-shelf {
+            stroke: #7d8b86;
+            stroke-width: 6;
+            stroke-linecap: round
+        }
+
+        .alt {
+            stroke: #8d78ba;
+            stroke-width: 4;
+            stroke-dasharray: 9 6
+        }
+
+        .dim {
+            stroke: var(--teal);
+            stroke-width: 1.5;
+            marker-start: url(#arr);
+            marker-end: url(#arr)
+        }
+
+        .ann {
+            fill: #075b53;
+            font-size: 13px;
+            font-weight: 700
+        }
+
+        .quote {
+            border-top: 1px solid var(--line);
+            margin-top: 14px;
+            padding-top: 14px
+        }
+
+        .quote h3 {
+            margin: 0 0 6px;
+            font-size: 1.05rem
+        }
+
+        .quote p {
+            margin: 0 0 10px
+        }
+
+        .quote .actions {
+            margin-top: 12px;
+            align-items: center
+        }
+
+        .quote-note {
+            margin: 10px 0 0;
+            font-size: .84rem
+        }
+
+        .quote textarea {
+            width: 100%;
+            min-height: 170px;
+            padding: 12px;
+            border: 1px solid #bfd1ca;
+            border-radius: 9px;
+            font: .78rem/1.5 monospace
+        }
+
+        .steps {
+            position: relative;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0;
+            margin-top: 28px !important;
+            isolation: isolate;
+            counter-reset: process-step
+        }
+
+        .steps::before {
+            content: "";
+            position: absolute;
+            top: 28px;
+            left: 8.5%;
+            right: 8.5%;
+            height: 2px;
+            background: #b9d9d0;
+            z-index: -1
+        }
+
+        .steps .card {
+            position: relative;
+            padding: 62px 12px 10px;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            text-align: center
+        }
+
+        .steps .card::before {
+            content: counter(process-step);
+            counter-increment: process-step;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            place-items: center;
+            width: 56px;
+            height: 56px;
+            border: 6px solid #eaf3ef;
+            border-radius: 50%;
+            background: var(--teal);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 800;
+            box-shadow: 0 0 0 1px #9bcfc2
+        }
+
+        .steps .card h3 {
+            margin-bottom: 8px;
+            font-size: 1rem
+        }
+
+        .steps .card p {
+            margin: 0 auto;
+            max-width: 150px;
+            font-size: .82rem
+        }
+
+        .closing {
+            padding: 76px 0;
+            background: linear-gradient(120deg, #fff, #e7f3ee);
+            border-top: 1px solid var(--line)
+        }
+
+        .closing .card {
+            max-width: 720px;
+            margin: auto;
+            text-align: center;
+            padding: 48px 32px
+        }
+
+        .closing-icon {
+            font-size: 2.2rem;
+            margin-bottom: 10px
+        }
+
+        .closing h2 {
+            margin: 8px 0 10px
+        }
+
+        .closing p {
+            max-width: 520px;
+            margin: 0 auto 22px
+        }
+
+        .closing .contact {
+            margin-top: 18px;
+            font-size: .85rem;
+            color: var(--muted)
+        }
+
+        @media(max-width:800px) {
+
+            .hero-grid,
+            .design-grid {
+                grid-template-columns: 1fr
+            }
+
+            .controls {
+                position: static
+            }
+
+            .features {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .steps {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .steps::before {
+                display: none
+            }
+        }
+
+        @media(max-width:560px) {
+            nav {
+                display: none
+            }
+
+            .wrap {
+                padding: 0 15px
+            }
+
+            .gallery,
+            .features,
+            .steps {
+                grid-template-columns: 1fr
+            }
+
+            section {
+                padding: 55px 0
+            }
+        }
+    </style>
+    <style>
+        main {
+            display: flex;
+            flex-direction: column
+        }
+
+        #product {
+            order: 1
+        }
+
+        .hero {
+            order: 2
+        }
+
+        main>section:not(#product):not(.hero) {
+            order: 3
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip" href="#designer">Skip to configurator</a>
+    <!-- Page sections: product overview, workflow explanation, and configurator. -->
+    <main id="top">
+        <!-- Made for your workflow -->
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <div class="eyebrow">A Narrow and Deep Rack for Serological Pipettes</div>
+                    <h1>A Four-tier Rack for Serological Pipettes</h1>
+                    <p>In busy research and clinical environments, multi-size serological pipettes are essential everyday consumables, making organized, accessible, and contamination-free storage critical to laboratory efficiency. Rytros addresses this need with a flexible four-tier rack designed to securely store standard serological pipettes from 1 mL to 50 mL. Its vertical, space-saving design maximizes valuable lab real estate, fitting neatly on crowded benchtops or near cabinets while keeping pipettes organized and readily accessible.</p>
+                    <div class="gallery hero-gallery">
+                        <figure class="card">
+                            <img src="q_example_A.png" alt="Assembly A, higher top shelf" width="340" height="340"
+                                loading="lazy" decoding="async">
+                            <figcaption>Assembly A<br>higher top shelf</figcaption>
+                        </figure>
+                        <figure class="card">
+                            <img src="q_example_B.png" alt="Assembly B, lower top shelf" width="340" height="340"
+                                loading="lazy" decoding="async">
+                            <figcaption>Assembly B<br>lower top shelf</figcaption>
+                        </figure>
+                        <article class="card hero-specs">
+                            <h3>Current Product Specifications</h3>
+                            <ul>
+                                <li><strong>Overall dimensions:</strong> (Width × Depth ×
+                                    Height) approx. 130 × 270 × 370 mm</li>
+                                <li><strong>Shelf inner width:</strong> Approx. 120 mm</li>
+                                <li><strong>Shelf inner length:</strong> Approx. 255 mm</li>
+                                <li><strong>Layout:</strong> Three fixed shelves with an open shelf at the top</li>
+                                <li><strong>Space between shelves:</strong>
+                                    <ul>
+                                        <li><strong>A:</strong> Approx. 95 mm, 95 mm, and 115 mm</li>
+                                        <li><strong>B:</strong> Approx. 95 mm between each shelf</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="actions hero-cta">
+                                <a class="btn secondary"
+                                    href="https://rytros.com/image/Assembly_Instructions_Rack_For_Serological_Pipettes.html">Learn
+                                    more about the rack</a>
+                                <a class="btn primary cta-glow" href="#designer">Need customisation? Design your own 👇</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- The product -->
+        <section id="product">
+            <div class="wrap">
+                <div class="intro">
+                    <div class="eyebrow">Product</div>
+                    <h2>Inclined Multi-tier Rack</h2>
+                    <p>A stable, convenient rack — plus a design tool that makes every rack a custom one.</p>
+                </div>
+                <div class="features">
+                    <article class="card">
+                        <h3>2-in-1 Flexible Configuration</h3>
+                        <p>Position the top shelf higher or lower to achieve the desired spacing between shelves.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Real-Time Customisation</h3>
+                        <p>Change any dimension in real time to suit your available space and your needs, without communication or technical barriers.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Precision Production</h3>
+                        <p>Smooth edges and rounded corners provide a clean, comfortable, and safe-to-handle finish.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- How it works / video placeholder -->
+        <section id="workflow">
+            <div class="wrap">
+                <div class="intro">
+                    <div class="eyebrow">How it works</div>
+                    <h2>Six Simple Steps</h2>
+
+                </div>
+                <!--
+                <a class="video" href="#designer" aria-label="Go to the rack configurator">
+                    <div class="play" aria-hidden="true">▶</div>
+                    <small>How to use our tool to design your own · video</small>
+                </a>
+                -->
+                <div class="steps">
+                    <article class="card">
+                        <h3>Measure</h3>
+                        <p>Measure your available space.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Customise</h3>
+                        <p>Adjust dimensions below.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Request</h3>
+                        <p>Copy specifications and share with us.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Order</h3>
+                        <p>Confirm quotation and production details.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Receive</h3>
+                        <p>Receive and assemble the rack.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Use</h3>
+                        <p>Use your rack.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Customer configurator -->
+        <section class="builder" id="designer">
+            <div class="wrap">
+                <div class="intro">
+                    <div class="eyebrow">Let's start</div>
+                    <h2>Instant Customisation</h2>
+                    <p>Skip time-consuming consultation · Skip CAD drawing</p>
+                    <p>Change almost anything. Watch the design update live, and request a quote in one click. </p>
+                </div>
+                <div class="design-grid">
+                    <aside class="card controls">
+                        <div class="group">
+                            <h3>Fit your space · Dimensions in mm</h3>
+                            <div class="field">
+                                <label>Rack inner width <input id="innerWidth" type="number" value="120" min="1"
+                                        step=".1">
+                                </label>
+                                <small>How wide do you want the rack to be? Clear space between the side panels.</small>
+                            </div>
+                            <div class="field">
+                                <label>Rack inner depth <input id="depth" type="number" value="255" min="1" step=".1">
+                                </label>
+                                <small>How long do you want the rack to be? Front-to-back depth of the rack.</small>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <h3>Arrange the shelves</h3>
+                            <div class="field">
+                                <label>Shelf slope <input id="drop" type="number" value="25" min="0.1" step=".1">
+                                </label>
+                                <small>How steep do you want it to be? Vertical drop from the front to the back of each
+                                    shelf.</small>
+                            </div>
+                            <div class="field">
+                                <label>Fixed shelf levels <input id="fixedShelves" type="number" value="3" min="0">
+                                </label>
+                            </div>
+                            <div class="field">
+                                <label>Fixed-shelf height <input id="interShelfClearance" type="number" value="95"
+                                        min="0.1" step=".1">
+                                </label>
+                                <small>Clear vertical opening between fixed shelf levels.</small>
+                            </div>
+                            <div class="field">
+                                <label>Flexible shelf levels <input id="flexibleShelves" type="number" value="1"
+                                        min="0">
+                                </label>
+                                <small>Shelf levels with an additional alternate top position.</small>
+                            </div>
+                            <div class="field">
+                                <label>Alternate shelf position height <input id="flexibleGrooveOffset" type="number"
+                                        value="20" min="0.1" step=".1">
+                                </label>
+                                <small>Vertical distance from each flexible shelf's main position up to its alternate position — the "2-in-1" higher-shelf option.</small>
+                            </div>
+                        </div>
+                        <details class="group advanced">
+                            <summary>Advanced options</summary>
+                            <div class="field">
+                                <label>Bottom clearance <input id="bottomClearance" type="number" value="10" min="10"
+                                        step=".1">
+                                </label>
+                                <small>Clear vertical space from the bottom of the lowest shelf to the floor. >=10</small>
+                            </div>
+                            <div class="field">
+                                <label>Top open height at the front <input id="topClearance" type="number" value="10" min="10"
+                                        step=".1">
+                                </label>
+                                <small>Clear vertical space above the top shelf. >=10</small>
+                            </div>
+                            <div class="field">
+                                <label>Side margin <input id="sideMargin" type="number" value="8" min="8" step=".1">
+                                </label>
+                                <small>Added at each end (front and back) of the rack depth. >=8</small>
+                            </div>
+                        </details>
+                        <div class="group">
+                            <h3>Construction</h3>
+                            <div class="field field-select">
+                                <label for="material">Material</label>
+                                <select id="material" name="material">
+                                    <option value="Acrylic (PMMA)">Acrylic (PMMA)</option>
+                                    <option value="Polycarbonate (PC)">Polycarbonate (PC)</option>
+                                    <option value="Stainless steel">Stainless steel</option>
+                                    <option value="Carbon steel">Carbon steel</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>Side panel thickness <input id="sidePanelThickness" type="number" value="6"
+                                        min="1" step=".1">
+                                </label>
+                                <small>&lt;20 (mm). Please contact us at <a
+href="mailto:order@rytros.com">order@rytros.com</a> if you need 20 mm or more.</small>
+                            </div>
+                            <div class="field">
+                                <label>Back panel thickness <input id="backPanelThickness" type="number" value="6"
+                                        min="1" step=".1">
+                                </label>
+                                <small>&lt;20 (mm). Please contact us at <a
+href="mailto:order@rytros.com">order@rytros.com</a> if you need 20 mm or more.</small>
+                            </div>
+                            <div class="field">
+                                <label>Shelf thickness <input id="shelfThickness" type="number" value="5" min=".1"
+                                        step=".1">
+                                </label>
+                                <small>&lt;20 (mm). Please contact us at <a
+href="mailto:order@rytros.com">order@rytros.com</a> if you need 20 mm or more.</small>
+                            </div>
+                            <div class="field field-radio">
+                                <label>Customise logo or text</label>
+                                <div class="radio-row">
+                                    <label><input type="radio" name="customLogo" id="customLogoNo" value="Not Needed" checked> Not Needed</label>
+                                    <label><input type="radio" name="customLogo" id="customLogoYes" value="Yes"> Yes</label>
+                                </div>
+                            </div>
+                            <div class="field field-radio">
+                                <label>Highly transparent</label>
+                                <div class="radio-row">
+                                    <label><input type="radio" name="transparent" id="transparentNo" value="Not Needed" checked> Not Needed</label>
+                                    <label><input type="radio" name="transparent" id="transparentYes" value="Yes"> Yes</label>
+                                </div>
+                            </div>
+                            <div class="field field-textarea">
+                                <label for="noteForUs">Note for us</label>
+                                <textarea id="noteForUs" name="noteForUs"
+                                    placeholder="If you need help, leave a note for us. Describe how you plan to use the rack."></textarea>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="preview">
+                        <h3>Live Design Preview (Side View)</h3>
+                        <p>Real-time</p>
+                        <div class="preview-row">
+                            <div class="preview-visual">
+                                <svg id="preview" viewBox="0 0 980 840" role="img"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    aria-label="Annotated rack preview">
+                                </svg>
+                            </div>
+                            <ul class="preview-legend" aria-label="Preview legend">
+                                <li><span class="swatch fixed" aria-hidden="true"></span> Fixed shelf groove</li>
+                                <li><span class="swatch flex" aria-hidden="true"></span> Flexible shelf groove</li>
+                                <li><span class="swatch alt" aria-hidden="true"></span> Alternate position</li>
+                            </ul>
+                            <div id="result" class="summary" role="status" aria-live="polite" aria-atomic="true"></div>
+                        </div>
+                        <div class="quote" id="quote">
+                            <h3>Request your quote</h3>
+
+                            <textarea id="quoteText" readonly aria-label="Quote request email text"></textarea>
+                            <div class="actions">
+                                <button class="btn primary" id="copyQuote" type="button">Copy email text &amp; request a
+                                    quote</button>
+                            </div>
+                            <p class="quote-note"></p>
+                            <p class="quote-note">Copy this message into an email to <a
+                                    href="mailto:order@rytros.com">order@rytros.com</a>. Our production pipeline automatically generates the production plan. We will review your specifications together with the production plan and confirm the 3D model and quote with you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Closing card -->
+    <section class="closing">
+        <div class="wrap">
+            <div class="card">
+                <div class="closing-icon" aria-hidden="true">🛠️</div>
+                <h2>Customisable Benchtop Shield — Coming Soon</h2>
+                <p class="contact">Questions? Please find us at <a href="mailto:order@rytros.com">order@rytros.com</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- Configurator logic: calculations, preview drawing, and quote email text. -->
+    <script>
+        const ids = ["innerWidth", "depth", "drop", "sidePanelThickness", "backPanelThickness", "fixedShelves", "flexibleShelves", "flexibleGrooveOffset", "interShelfClearance", "shelfThickness", "bottomClearance", "topClearance", "sideMargin"], $ = id => document.getElementById(id), n = id => Number($(id).value || 0); let design = {}
+            ;
+        function update() {
+            const p = Object.fromEntries(ids.map(id => [id, $(id).value === "" ? null : n(id)]));
+            p.material = $("material").value;
+            p.noteForUs = $("noteForUs").value.trim();
+            p.customLogo = $("customLogoYes").checked ? "Yes" : "No";
+            p.transparent = $("transparentYes").checked ? "Yes" : "No";
+            // Fixed production default for the groove cut width (no longer exposed in the form).
+            p.grooveCutWidth = 5;
+            const count = p.fixedShelves + p.flexibleShelves, gh = p.grooveCutWidth / Math.sqrt(1 + Math.pow(p.drop / Math.max(1, p.depth - 10), 2)), stack = p.bottomClearance + count * gh + Math.max(0, count - 1) * p.interShelfClearance + p.drop + (p.flexibleShelves ? p.flexibleGrooveOffset : 0), height = stack + p.topClearance, clear = p.topClearance, gb = i => p.bottomClearance + i * (gh + p.interShelfClearance), outerWidth = p.innerWidth + 2 * p.sidePanelThickness, outerDepth = p.depth + 2 * p.sideMargin, warn = count < 1 ? "At least one shelf level is required." : ""; design = p; $("result").innerHTML = `<small>YOUR CURRENT DESIGN</small>
+<div>
+<span>Outer Height</span>
+<strong>${height.toFixed(1)} mm</strong>
+</div>
+<div>
+<span>Outer Width</span>
+<strong>${outerWidth.toFixed(1)} mm</strong>
+</div>
+<div>
+<span>Outer Depth</span>
+<strong>${outerDepth.toFixed(1)} mm</strong>
+</div>
+<div>
+<span>Shelf</span>
+<strong>${count}</strong>
+</div>${warn ? `<div class="warning">${warn}</div>` : ""}`; draw(p, height, gb, gh); quote(p, height, count, clear)
+        }
+
+        function draw(p, height, gb, gh) {
+            const s = $("preview"), count = p.fixedShelves + p.flexibleShelves;
+            const maxDrawW = 760, maxDrawH = 500;
+            const outerDepth = p.depth + 2 * p.sideMargin;
+            // The side panel is drawn at its physical length (rack depth + 2 x side margin),
+            // so the outline matches the reported Outer Depth and the manufacturing blank.
+            const scale = Math.min(maxDrawH / Math.max(height, 1), maxDrawW / Math.max(outerDepth, 1));
+            const panelW = outerDepth * scale, panelH = height * scale;
+            const x0 = 52, x1 = x0 + panelW, y0 = panelH + 8, top = y0 - panelH;
+            const rx = Math.min(12, 1 * scale);
+            const dimX = x0 - 34, dimY = y0 + 30, midX = (x0 + x1) / 2;
+            let contentTop = top;
+
+            let h = `<defs>
+<marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+<path d="M0,0 L6,3 L0,6 Z" fill="#08766c"/>
+</marker>
+<pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+<path d="M 25 0 L 0 0 0 25" fill="none" stroke="#ebf2ee" stroke-width="1"/>
+</pattern>
+</defs>`;
+
+            let grooves = "";
+
+            for (let i = 0; i < count; i++) {
+                const b = gb(i) + gh / 2, f = b + p.drop;
+                const yfTop = y0 - (f + gh / 2) * scale;
+                const yfBot = y0 - (f - gh / 2) * scale;
+                const ybTop = y0 - (b + gh / 2) * scale;
+                const ybBot = y0 - (b - gh / 2) * scale;
+                contentTop = Math.min(contentTop, yfTop, ybTop);
+
+                const isFixed = i < p.fixedShelves;
+                const strokeColor = isFixed ? "#f39c12" : "#8e44ad";
+                const fillColor = isFixed ? "#fef3dc" : "#ede7f6";
+
+                grooves += `<polygon points="${x0},${yfTop} ${x1},${ybTop} ${x1},${ybBot} ${x0},${yfBot}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="1.5"/>`;
+
+                if (!isFixed && p.flexibleGrooveOffset > 0) {
+                    const off = p.flexibleGrooveOffset;
+                    const yfTopAlt = y0 - (f + off + gh / 2) * scale;
+                    const yfBotAlt = y0 - (f + off - gh / 2) * scale;
+                    const ybTopAlt = y0 - (b + off + gh / 2) * scale;
+                    const ybBotAlt = y0 - (b + off - gh / 2) * scale;
+                    contentTop = Math.min(contentTop, yfTopAlt, ybTopAlt);
+                    grooves += `<polygon points="${x0},${yfTopAlt} ${x1},${ybTopAlt} ${x1},${ybBotAlt} ${x0},${yfBotAlt}" fill="#ede7f6" stroke="#8e44ad" stroke-width="1.5" stroke-dasharray="5,4"/>`;
+                }
+            }
+
+            const pad = 16;
+            const minX = dimX - 24, minY = contentTop - 10;
+            const maxX = x1 + 10, maxY = dimY + 34;
+            const vbX = minX - pad, vbY = minY - pad;
+            const vbW = maxX - minX + pad * 2, vbH = maxY - minY + pad * 2;
+
+            s.setAttribute("viewBox", `${vbX} ${vbY} ${vbW} ${vbH}`);
+            s.innerHTML = `${h}<rect x="${vbX}" y="${vbY}" width="${vbW}" height="${vbH}" fill="url(#grid)" rx="12"/>
+<rect x="${x0}" y="${top}" width="${panelW}" height="${panelH}" rx="${rx}" ry="${rx}" fill="#ffffff" stroke="#d92b4c" stroke-width="2.5"/>${grooves}
+<line class="dim" x1="${dimX}" y1="${top}" x2="${dimX}" y2="${y0}"/>
+<text class="ann" x="${dimX - 16}" y="${(top + y0) / 2}" transform="rotate(-90 ${dimX - 16} ${(top + y0) / 2})" text-anchor="middle">rack height ${height.toFixed(0)} mm</text>
+<line class="dim" x1="${x0}" y1="${dimY}" x2="${x1}" y2="${dimY}"/>
+<text class="ann" x="${midX}" y="${dimY + 20}" text-anchor="middle">outer depth ${outerDepth.toFixed(0)} mm</text>`;
+        }
+
+        function quote(p, height, count, clear) {
+            const advanced = [];
+            if (p.bottomClearance !== 10) advanced.push(`Bottom clearance: ${p.bottomClearance.toFixed(1)} mm`);
+            if (p.sideMargin !== 10) advanced.push(`Side margin: ${p.sideMargin.toFixed(1)} mm`);
+            const text = `Hello Rytros Lab Solutions,\n\nI would like to request a quote for a custom rack.\n\nDESIGN SUMMARY\n• Rack inner width: ${p.innerWidth.toFixed(1)} mm\n• Rack depth: ${p.depth.toFixed(1)} mm\n• Rack height: ${height.toFixed(1)} mm\n• Shelf slope: ${p.drop.toFixed(1)} mm\n• Shelf levels: ${count}\n• Flexible shelf levels: ${p.flexibleShelves}${p.flexibleShelves > 0 ? `\n• Alternate shelf position height: ${p.flexibleGrooveOffset.toFixed(1)} mm` : ""}\n• Fixed-shelf height: ${p.interShelfClearance.toFixed(1)} mm\n• Top clearance: ${clear.toFixed(1)} mm\n• Material: ${p.material}\n• Side panel thickness: ${p.sidePanelThickness.toFixed(1)} mm\n• Back panel thickness: ${p.backPanelThickness.toFixed(1)} mm\n• Shelf thickness: ${p.shelfThickness.toFixed(1)} mm${p.customLogo === "Yes" ? `\n• Custom logo or text: Yes` : ""}${p.transparent === "Yes" ? `\n• Highly transparent: Yes` : ""}${advanced.length ? `\n• Advanced: ${advanced.join("; ")}` : ""}${p.noteForUs ? `\n• Note for us: ${p.noteForUs}` : ""}\n\nPlease confirm the design, lead time and price.\n\nKind regards`;
+            $("quoteText").value = text;
+        }
+
+        ids.forEach(id => $(id).addEventListener("input", update));
+        $("material").addEventListener("change", update);
+        $("noteForUs").addEventListener("input", update);
+        $("customLogoYes").addEventListener("change", update);
+        $("customLogoNo").addEventListener("change", update);
+        $("transparentYes").addEventListener("change", update);
+        $("transparentNo").addEventListener("change", update);
+        async function copy(id, b) {
+            const text = $(id).value;
+            const original = b.textContent;
+            try {
+                await navigator.clipboard.writeText(text);
+                b.textContent = "Copied";
+            } catch {
+                $(id).focus();
+                $(id).select();
+                b.textContent = "Select text and copy";
+            }
+            setTimeout(() => b.textContent = original, 1200);
+        }
+        $("copyQuote").onclick = e => {
+            document.querySelector("#quote").scrollIntoView({ behavior: "smooth" });
+            copy("quoteText", e.target);
+        };
+        update();
+    </script>
+</body>
+
+</html>
